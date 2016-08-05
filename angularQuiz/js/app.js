@@ -1,4 +1,4 @@
 (function(){
-    angular.module("turleFacts");
+    angular.module("turtleFacts", ['ngRoute']);
     
 })();
