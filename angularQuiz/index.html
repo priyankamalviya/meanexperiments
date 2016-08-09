@@ -112,18 +112,31 @@
                 </div>
             </div>
         </div><!-- Progress Area -->
+
         <div class="row ">
             <h3>Question:</h3>
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-xs-12">
                         <h4>{{activeQuestion+1 + ". " + dataService.quizQuestions[activeQuestion].text}}</h4>
-                        <div class="row">
+                        <div class="row"
+                        ng-if="dataService.quizQuestions[activeQuestion].type === 'text'">
                             <div class="col-sm-6"
                                  ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
                                 <h4 class="answer">{{answer.answer}}</h4>
                             </div>
+                        </div><!-- row ends-->
+
+                        <div class="row"
+                             ng-if="dataService.quizQuestions[activeQuestion].type === 'image'">
+                            <div class="col-sm-6"
+                            ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
+                                <div class="image-answer">
+                                    <img ng-src="{{answer.answer}}"/>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <button class="btn btn-warning"

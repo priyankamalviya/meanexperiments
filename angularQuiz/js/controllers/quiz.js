@@ -24,7 +24,7 @@
                 while(!breakOut){
                     vm.activeQuestion = vm.activeQuestion < quizLength?++vm.activeQuestion:0;
 
-                    if(dataService.quizQuestions[vm.activeQuestion].selected ===null){
+                    if(DataService.quizQuestions[vm.activeQuestion].selected ===null){
                         breakOut = true;
                     }
                 }
@@ -39,7 +39,7 @@
                         //finalise the quiz
                     }
                 }
-                vm. setActiveQuestion();
+                vm.setActiveQuestion();
             }
         }
 
