@@ -111,11 +111,27 @@
                     </div>
                 </div>
             </div>
+        </div><!-- Progress Area -->
+        <div class="row ">
+            <h3>Question:</h3>
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>{{activeQuestion+1 + ". " + dataService.quizQuestions[activeQuestion].text}}</h4>
+                        <div class="row">
+                            <div class="col-sm-6"
+                                 ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
+                                <h4 class="answer">{{answer.answer}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-warning"
+                ng-click="questionAnswered()">Continue</button>
+            </div><!-- well ends-->
         </div>
 
     </div>
-
-
 
 </div>
 
@@ -124,7 +140,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 
 <!-- custom JS-->
 <script src="js/app.js"></script>
