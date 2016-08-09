@@ -12,6 +12,7 @@
             vm.dataService = DataService;
             vm.questionAnswered = questionAnswered;
             vm.setActiveQuestion = setActiveQuestion;
+            vm.selectAnswer = selectAnswer;
             vm.activeQuestion = 0;
 
 
@@ -40,6 +41,11 @@
                     }
                 }
                 vm.setActiveQuestion();
+            }
+
+
+            function selectAnswer(index){
+                DataService.quizQuestions[vm.activeQuestion].selected = index;
             }
         }
 
