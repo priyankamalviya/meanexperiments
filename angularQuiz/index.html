@@ -79,6 +79,39 @@
   </div><!-- List Controller-->
 
     <div ng-controller ="quizCtrl" ng-show ="quizMetrics.quizActive">
+        <div class="row">
+            <div class="col-xs-8 ">
+                <div class="pull-left">
+                    <h2>Progress:</h2>
+                    <div class="btn-toolbar">
+                        <button class="btn" ng-repeat="question in dataService.quizQuestions"
+                        ng-class="{'btn-info': 'question.selected !== null',
+                        'btn-danger': 'question.selected === null'}">
+                            <span class="glyphicon"
+                            ng-class="{'glyphicon-pencil': 'question.selected !== null',
+                            'glyphicon-question-sign': 'question.selected === null'}">
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Legend-->
+            <div class="col-xs-4">
+                <div class="row">
+                    <h4>Legend:</h4>
+                    <div class="col-sm-4">
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil"></span></button>
+                        <p>Answered</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-question-sign"></span></button>
+                        <p>Unanswered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -98,5 +131,6 @@
 <script src="js/controllers/list.js"></script>
 <script src="js/controllers/quiz.js"></script>
 <script src="js/factories/quizMetrics.js"></script>
+<script src="js/factories/dataservice.js"></script>
 </body>
 </html>
