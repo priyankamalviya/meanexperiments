@@ -5,13 +5,20 @@
 
     function ListController($scope){
         var vm = $scope;
+
         vm.data = turtlesData;
         vm.activeTurtle={};
         vm.changeActiveTurtle = changeActiveTurtle;
+        vm.activateQuiz = activateQuiz;
         vm.search = "";
+        vm.quizActive = false;
 
         function changeActiveTurtle(index) {
             vm.activeTurtle = index;
+        }
+        
+        function activateQuiz() {
+            vm.quizActive = true;
         }
     }
 
