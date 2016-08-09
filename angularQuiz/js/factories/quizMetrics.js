@@ -6,14 +6,14 @@
         function QuizMetrics() {
             var quizObj = {
                 quizActive: false,
-                changeState: changeState
+                changeState: changeState // changeState is a named function below
             };
 
             return quizObj;
 
-        function changeState(state){
-             quizObj.quizActive = state;
-        }
+            function changeState(state) {
+                quizObj.quizActive = state;
+            }
 
         }
 })();

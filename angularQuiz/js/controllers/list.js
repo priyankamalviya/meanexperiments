@@ -1,24 +1,29 @@
 (function(){
-    angular.module("turtleFacts")
+    angular
+        .module("turtleFacts")
         .controller("listCtrl", ListController);
 
 
-    function ListController($scope){
+    ListController.$inject = ['$scope','quizMetrics'];
+
+
+    function ListController($scope, quizMetrics){
         var vm = $scope;
 
+
+        vm.quizMetrics = quizMetrics;
         vm.data = turtlesData;
         vm.activeTurtle={};
         vm.changeActiveTurtle = changeActiveTurtle;
         vm.activateQuiz = activateQuiz;
         vm.search = "";
-        vm.quizActive = false;
 
         function changeActiveTurtle(index) {
             vm.activeTurtle = index;
         }
         
         function activateQuiz() {
-            vm.quizActive = true;
+            quizMetrics.changeState(true);
         }
     }
 

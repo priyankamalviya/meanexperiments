@@ -15,7 +15,7 @@
     <h3>Learn all about turtles below before you start taking the <strong>TURTLE QUIZ</strong></h3>
   </div>
 
-  <div ng-controller="listCtrl" ng-hide="quizActive">
+  <div ng-controller="listCtrl" ng-hide="quizMetrics.quizActive">
       <form class ="form-inline well well-sm clearfix">
           <div class="pull-left">
         <span class="glyphicon glyphicon-search"></span>
@@ -75,7 +75,15 @@
               </div>
           </div>
       </div>
-  </div>
+
+  </div><!-- List Controller-->
+
+    <div ng-controller ="quizCtrl" ng-show ="quizMetrics.quizActive">
+
+    </div>
+
+
+
 </div>
 
 <!-- Angular, jQuery and Bootstrap JS CDN-->
@@ -83,7 +91,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<!-- custom JS-->
 <script src="js/app.js"></script>
 <script src="js/controllers/list.js"></script>
+<script src="js/controllers/quiz.js"></script>
+<script src="js/factories/quizMetrics.js"></script>
 </body>
 </html>
