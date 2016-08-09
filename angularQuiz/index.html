@@ -86,7 +86,8 @@
                     <div class="btn-toolbar">
                         <button class="btn" ng-repeat="question in dataService.quizQuestions"
                         ng-class="{'btn-info': question.selected !== null,
-                        'btn-danger': question.selected === null}">
+                        'btn-danger': question.selected === null}"
+                        ng-click="setActiveQuestion($index)">
                             <span class="glyphicon"
                             ng-class="{'glyphicon-pencil': question.selected !== null,
                             'glyphicon-question-sign': question.selected === null}">
@@ -134,7 +135,9 @@
                              ng-if="dataService.quizQuestions[activeQuestion].type === 'image'">
                             <div class="col-sm-6"
                             ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
-                                <div class="image-answer">
+                                <div class="image-answer"
+                                ng-class="{'image-selected': $index === dataService.quizQuestions[activeQuestion].selected}"
+                                ng-click="selectAnswer($index)">
                                     <img ng-src="{{answer.answer}}"/>
                                 </div>
                             </div>

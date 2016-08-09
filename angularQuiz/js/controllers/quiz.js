@@ -18,17 +18,20 @@
 
             var numQuestionsAnswered =0;
 
-            function setActiveQuestion(){
-                var breakOut = false;
-                var quizLength = DataService.quizQuestions.length - 1;
+            function setActiveQuestion(index){
+                if(index === undefined){
+                    var breakOut = false;
+                    var quizLength = DataService.quizQuestions.length - 1;
 
-                while(!breakOut){
-                    vm.activeQuestion = vm.activeQuestion < quizLength?++vm.activeQuestion:0;
+                    while(!breakOut){
+                        vm.activeQuestion = vm.activeQuestion < quizLength?++vm.activeQuestion:0;
 
-                    if(DataService.quizQuestions[vm.activeQuestion].selected ===null){
-                        breakOut = true;
+                        if(DataService.quizQuestions[vm.activeQuestion].selected ===null){
+                            breakOut = true;
+                        }
                     }
-                }
+                }else
+                    vm.activeQuestion = index;
             }
             
             function questionAnswered() {
