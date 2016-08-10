@@ -115,8 +115,13 @@
         </div><!-- Progress Area -->
 
         <div class="row ">
+            <div class="alert alert-danger"
+            ng-show="error">
+                Error! You have not answered all of the questions!!
+                <button class="close" ng-click="error = false">&times</button>
+            </div>
             <h3>Question:</h3>
-            <div class="well well-sm">
+            <div class="well well-sm" ng-hide="finalise">
                 <div class="row">
                     <div class="col-xs-12">
                         <h4>{{activeQuestion+1 + ". " + dataService.quizQuestions[activeQuestion].text}}</h4>
@@ -148,10 +153,18 @@
                 <button class="btn btn-warning"
                 ng-click="questionAnswered()">Continue</button>
             </div><!-- well ends-->
-        </div>
 
+            <div class="well well-sm" ng-show="finalise">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Are you sure you want to submit your answers?</h3>
+                        <button class="btn btn-success" ng-click="finaliseAnswers()">Yes</button>
+                        <button class="btn btn-danger" ng-click="finalise = false">No</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row ends-->
     </div>
-
 </div>
 
 <!-- Angular, jQuery and Bootstrap JS CDN-->
