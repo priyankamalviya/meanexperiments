@@ -174,7 +174,7 @@
                     <div class="btn-toolbar">
                         <button class="btn btn-success "><span class="glyphicon glyphicon-ok"></span></button>
                         <button class="btn"
-                                ng-repeat="question in dataService.quizQuestions"
+                                ng-repeat="question in DataService.quizQuestions"
                                 ng-class="{'btn-success': question.correct, 'btn-danger': !question.correct}"
                                 ng-click="setActiveQuestion($index)">
 
