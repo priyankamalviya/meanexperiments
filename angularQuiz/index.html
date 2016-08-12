@@ -204,6 +204,13 @@
         </div><!-- Row for results buttons ends -->
 
         <div class="row">
+            <div class="col-xs-12 top-buffer">
+                <h2>You Scored:{{quizMetrics.numCorrect}} / {{dataService.quizQuestions.length}}</h2>
+                <h2><strong>{{calculatePerc() | number:2}}%</strong></h2>
+            </div>
+            </div>
+
+        <div class="row" ng-if="dataService.quizQuestions[activeQuestion].type==='text'">
             <h3>Questions:</h3>
             <div class="well well-sm">
                 <div class="row">
@@ -229,8 +236,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div><!-- row-->
+        <div class="row" ng-if="dataService.quizQuestions[activeQuestion].type==='image'">
+            <div class="col-sm-6" ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
+                <div class="image-answer" ng-class="getAnswerClass($index)">
+                    <img ng-src="{{answer.answer}}">
+                    </div>
+            </div>
+            </div><!-- row -->
+        <button class="btn btn-primary btn-lg" ng-click="reset()">Go Back to Facts</button>
     </div>
 </div>
 
