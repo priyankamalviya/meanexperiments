@@ -174,7 +174,7 @@
                     <div class="btn-toolbar">
                         <button class="btn btn-success "><span class="glyphicon glyphicon-ok"></span></button>
                         <button class="btn"
-                                ng-repeat="question in DataService.quizQuestions"
+                                ng-repeat="question in dataService.quizQuestions"
                                 ng-class="{'btn-success': question.correct, 'btn-danger': !question.correct}"
                                 ng-click="setActiveQuestion($index)">
 
@@ -202,6 +202,35 @@
                 </div>
             </div>
         </div><!-- Row for results buttons ends -->
+
+        <div class="row">
+            <h3>Questions:</h3>
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <h4> {{activeQuestion+1 +". "+dataService.quizQuestions[activeQuestion].text}} </h4>
+                        <div class="row"
+                             ng-if="dataService.quizQuestions[activeQuestion].type === 'text'">
+
+                            <div class="col-sm-6" ng-repeat="answer in dataService.quizQuestions[activeQuestion].possibilities">
+                                <h4 class="answer" ng-class="getAnswerClass($index)">
+
+                                    {{answer.answer}}
+                                    <p class="pull-right"
+                                       ng-show="$index !== quizMetrics.correctAnswers[activeQuestion] && $index === dataService.quizQuestions[activeQuestion].selected">Your Answer</p>
+
+                                    <p class="pull-right"
+                                       ng-show="$index === quizMetrics.correctAnswers[activeQuestion]">Correct Answer</p>
+
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
